@@ -1,0 +1,24 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build & Flash",
+			"type": "shell",
+			"command": "cargo",
+			"args": [ "flash", "--chip", "rp2040", "--bin", "blinky" ],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"panel": "dedicated",
+				"clear": true
+			},
+			"problemMatcher": [
+				"$rustc"
+			]
+		}
+	]
+}

@@ -1,0 +1,20 @@
+[workspace]
+resolver = "3"
+members = [
+  "boot2",
+  "firmware",
+]
+
+
+[workspace.package]
+edition = "2024"
+
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+opt-level = "s"
+strip = "symbols"
+lto = true
+panic = "abort"

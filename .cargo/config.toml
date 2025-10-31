@@ -1,0 +1,11 @@
+[build]
+target = "thumbv6m-none-eabi"
+
+
+[target.thumbv6m-none-eabi]
+runner = [ "probe-rs", "run", "--chip", "rp2040" ]
+rustflags = [
+  "-C", "link-arg=-Tmemory.x",
+  "-C", "link-arg=--nmagic",
+  "-C", "link-arg=-Map=target/firmware.map",
+]
