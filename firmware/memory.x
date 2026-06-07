@@ -25,6 +25,27 @@ SECTIONS {
     *(.text .text.*);
   } > FLASH
 
+  .rodata :
+  {
+    *(.rodata .rodata.*);
+  } > FLASH
+
+  .data :
+  {
+    __sdata = .;
+    *(.data .data.*);
+    __edata = .;
+  } > SRAM AT> FLASH
+
+  __sidata = LOADADDR(.data);
+
+  .bss :
+  {
+    __sbss = .;
+    *(.bss .bss.*);
+    __ebss = .;
+  } > SRAM
+
   /DISCARD/ :
   {
     *(.ARM.exidx);
